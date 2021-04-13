@@ -8,11 +8,15 @@ $pdo = new PDO('mysql:host=localhost;dbname=autocompletion', 'root', '');
 $sql = "SELECT * FROM autocompletion_hardware";
 $result = $pdo->prepare($sql);
 $result->execute();
-$fetch = $result->fetchAll(PDO::FETCH_ASSOC);
+$tab = array();
+while($res=$result->fetch(PDO::FETCH_ASSOC)) {
+    array_push($tab, $res);
+    }
 
-var_dump($fetch);
+// var_dump($tab);
 
-echo json_encode($fetch);
+// echo 
+var_dump(json_encode($tab));
 
 
 
