@@ -1,23 +1,14 @@
 <?php
-
-// header('Content-type: application/json');
-
-
 $pdo = new PDO('mysql:host=localhost;dbname=autocompletion', 'root', '');
 
 $sql = "SELECT * FROM autocompletion_hardware";
 $result = $pdo->prepare($sql);
 $result->execute();
-$tab = array();
-while($res=$result->fetch(PDO::FETCH_ASSOC)) {
-    array_push($tab, $res);
-    }
+$fetch = $result->fetchAll(PDO::FETCH_ASSOC);
 
-// var_dump($tab);
+//var_dump($fetch);
 
-// echo 
-var_dump(json_encode($tab));
-
+echo json_encode($fetch);
 
 
 ?>
