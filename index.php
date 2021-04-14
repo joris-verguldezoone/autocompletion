@@ -17,13 +17,14 @@
 
     <main>
     
-    <table>
-        <tbody id='tBody'>
-        </tbody>
-    </table>
-    
-    <button type='button' id='button'>Update</button>
-    
+        <table>
+            <tbody id='tBody'>
+            </tbody>
+        </table>
+        <form method="GET" action="element.php">
+            <input type='text' id='text_search' name='text_search'>
+            <input type='button' id='search' name='search' value='Rechercher'>
+        </form>
     </main>
 
     <footer>

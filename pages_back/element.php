@@ -5,8 +5,13 @@
 
 $pdo = new PDO('mysql:host=localhost;dbname=autocompletion', 'root', '');
 
-$sql = "SELECT * FROM autocompletion_hardware";
+$input_text = $_POST['text_search'].'%';
+$input_text2 = '% '.$_POST['text_search'].'%';
+
+$sql = "SELECT * FROM autocompletion_hardware WHERE mot LIKE :input_text OR :input_text2";
 $result = $pdo->prepare($sql);
+$result->bindValue(':input_text',$input_text,PDO::PARAM_STR);
+$result->bindValue(':input_text2',$input_text2,PDO::PARAM_STR);
 $result->execute();
 $fetch = $result->fetchAll(PDO::FETCH_ASSOC);
 
