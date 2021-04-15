@@ -4,44 +4,63 @@ var matchList = document.getElementById('matchList')
 // $('#text_search').addEventListenner(function () {
 //     console.log(text_search)
 // })
+// function isEmpty(str) {
+//     return (!str || str.length === 0);
+// }
 
 // addEventListener('input', function (evt) { // a revoir pour le input, pas bien compris 
-$('#text_search').keyup(function(){
-        // console.log(text_search.value)
-        $.ajax({
-            url: 'pages_back/element.php',
-            dateType: 'json',
-            type: 'POST',
-            data:'text_search='+$(this).val() // this -> $('#text_search')
-        // })
-        }).done(function (data){
-            var str = ""
-            var data = JSON.parse(data)
-            for (var i = 0; i < data.length; i++){
-               
-                str = str + data[i][0]['mot'] + "<br />"
-                
-                console.log(data[i][0]['mot'])
-            }           
-            document.getElementById('matchList').innerHTML = str
+$('#text_search').keyup(function () {
+    console.log(text_search.value)
 
-            console.log(data)
-        
+
+    // if (!(text_search == "")) {
+
+    console.log(text_search.length)
+    $.ajax({
+        url: 'pages_back/element.php',
+        dateType: 'json',
+        type: 'POST',
+        data: 'text_search=' + $(this).val() // this -> $('#text_search')
+        // })
+    }).done(function (data) {
+        var str = ""
+        var data = JSON.parse(data)
+        for (var i = 0; i < data.length; i++) {
+
+
+            str = str + '<a style="cursor:pointer;">' + data[i][0]['mot'] + '</a><br />'
+
+            console.log(data[i][0]['mot'])
+        }
+        document.getElementById('matchList').innerHTML = str
+
+        console.log(data)
+
         // attraper les résultat et les mettre sous l'input
     })
 
+    // }
 });
+$('#matchList').on('click', 'a', function (e) {
+    // dont allow the <a> to perform its default functionality
+    console.log('mabite')
+    e.preventDefault();
+    // get content of <a> tag
+    console.log($(this).text());
+    document.getElementById('text_search').value = $(this).text();
+})
 
 $('#search').click(function () {
 
     $.ajax({
         url: 'pages_back/element.php',
         dataType: 'json',
-        type: 'POST'
+        type: 'POST',
+        data: 'text_search=' + $('#text_search').val()
 
 
     }).done(function (data) {
         console.log(data)
-
+        // a peu près bon 
     })
 })

@@ -9,6 +9,7 @@
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous">
   </script>
+  <link rel='stylesheet' href='css/style.css'>
     <title>autocompletion</title>
 </head>
 <body>
@@ -19,9 +20,11 @@
     <tbody id='tBody'>
 </tbody>
         <form method="POST" action="pages_back/element.php">
-            <input type='text' id='text_search' name='text_search'>
+        <div class="flex_col">
+            <input type='text' id='text_search' name='text_search' autocomplete="off">
+            <div id='matchList'></div>
+        </div>
             <input type='button' id='search' name='search' value='Rechercher'>
-            <div id='matchList' style='background-color:aqua; height:10vh; width:10vw;'></div>
         </form>
     </main>
 

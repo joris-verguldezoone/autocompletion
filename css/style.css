@@ -1,0 +1,25 @@
+#matchList{
+    background-color:white;
+    min-height:10vh;
+    width: 100%w;
+    padding:10px;
+    border-bottom-right-radius:  0.5em;
+    border-bottom-left-radius:  0.5em;
+    box-shadow: 1px 1px 1px grey;
+    
+}
+input[type=text]{
+    width:100%;
+}
+.flex_col{
+    display: flex;
+    flex-direction: column;
+    width:12vw;
+}
+form{
+    display: flex;
+    flex-direction: row;
+}
+input[type=button]{
+    height:10%;
+}

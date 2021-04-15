@@ -8,28 +8,41 @@ $pdo = new PDO('mysql:host=localhost;dbname=autocompletion', 'root', '');
 $input_text = $_POST['text_search'].'%';
 $input_text2 = '% '.$_POST['text_search'].'%';
 
-if(!empty($_POST['text_search'])){
 
-    $sql = "SELECT * FROM autocompletion_hardware WHERE mot LIKE :input_text OR :input_text2";
+
+if(!empty($_POST['text_search'])){
+    $tab1 = array();
+    $tab2 = array();
+    $i = 0;
+
+    $sql = "SELECT * FROM autocompletion_hardware WHERE mot LIKE :input_text";
     $result = $pdo->prepare($sql);
     $result->bindValue(':input_text',$input_text,PDO::PARAM_STR);
-    $result->bindValue(':input_text2',$input_text2,PDO::PARAM_STR);
     $result->execute();
-    $tab = array();
-    $i = 0;
     while( $fetch = $result->fetch(PDO::FETCH_ASSOC)){
         
-       $tab[$i][] = $fetch;
+       $tab1[$i][] = $fetch;
         $i++;
     }
     
+    $sql2 = "SELECT * FROM autocompletion_hardware WHERE mot LIKE :input_text2";
+    $result2 = $pdo->prepare($sql2);
+    $result2->bindValue(':input_text2',$input_text2,PDO::PARAM_STR);
+    $result2->execute();
+    
+    while( $fetch2 = $result2->fetch(PDO::FETCH_ASSOC)){
+        
+       $tab2[$i][] = $fetch2;
+        $i++;
+    }
+    $tab = $tab1 + $tab2;
     // matchlist
-}
     // var_dump($fetch);
     
-// echo json_last_error_msg(); 
-
-echo json_encode( utf8ize( $tab )); //cheatcode.exe ou tout simplement un probleme mystique avec une solution mystique.......
+    // echo json_last_error_msg(); 
+    
+}
+    echo json_encode( utf8ize( $tab )); //cheatcode.exe ou tout simplement un probleme mystique avec une solution mystique.......
 
 function utf8ize( $mixed ) {
     if (is_array($mixed)) {
