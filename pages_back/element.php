@@ -5,12 +5,12 @@
 
 $pdo = new PDO('mysql:host=localhost;dbname=autocompletion', 'root', '');
 
-$input_text = $_POST['text_search'].'%';
-$input_text2 = '% '.$_POST['text_search'].'%';
+$input_text = $_GET['text_search'].'%';
+$input_text2 = '% '.$_GET['text_search'].'%';
 
 
 
-if(!empty($_POST['text_search'])){
+if(!empty($_GET['text_search'])){
     $tab1 = array();
     $tab2 = array();
     $i = 0;

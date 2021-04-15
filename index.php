@@ -18,14 +18,14 @@
 
     <main>
  
-        <form method="POST" action="pages_back/element.php">
+        <form method="get" action="pages_back/recherche.php">
 
             <div class="flex_col">
                 <input type='text' id='text_search' name='text_search' autocomplete="off">
                 <div id='matchList'></div>
             </div>
-            
-            <input type='button' id='search' name='search' value='Rechercher'>
+            <input type='hidden' id='result' name='result'>
+            <input type='submit' id='search' name='search' value='Rechercher'>
 
         </form>
     

@@ -19,7 +19,10 @@
     <main>
     <tbody id='tBody'>
 
-        <div class="result"></div>
+        <div class="result">
+        <?php echo ($_GET['result']); ?>
+        <?php var_dump($_GET); ?>
+        </div>
                 
     </main>
 

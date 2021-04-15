@@ -20,6 +20,6 @@ form{
     display: flex;
     flex-direction: row;
 }
-input[type=button]{
+input[type=submit]{
     height:10%;
 }

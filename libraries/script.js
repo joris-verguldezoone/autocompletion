@@ -16,7 +16,7 @@ $('#text_search').keyup(function () {
     $.ajax({
         url: 'pages_back/element.php',
         dateType: 'json',
-        type: 'POST',
+        type: 'GET',
         data: 'text_search=' + $(this).val() // this -> $('#text_search')
         // })
     }).done(function (data) {
@@ -51,7 +51,7 @@ $('#search').click(function () {
     $.ajax({
         url: 'pages_back/element.php',
         dataType: 'json',
-        type: 'POST',
+        type: 'GET',
         data: 'text_search=' + $('#text_search').val()
     }).done(function (data) {
         var str = ""
@@ -64,7 +64,8 @@ $('#search').click(function () {
             console.log(data[i][0]['mot'])
         }
         console.log(str)
-        document.getElementById('matchList').innerHTML = str
-
+        document.getElementById('result').value = str
+        console.log(document.getElementById('result').value)
     })
+    
 }); 
