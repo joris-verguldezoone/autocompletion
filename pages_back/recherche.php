@@ -13,15 +13,37 @@
     <title>autocompletion</title>
 </head>
 <body>
+<?php
+    $recherche = 'recherche.php';
+
+?>
     <header>
+    <form method="get" action="<?=$recherche?>">
+
+        <div class="flex_col">
+            <input type='text' id='text_search_header' name='text_search_header' autocomplete="off">
+        <div id='matchList_header'></div>
+        </div>
+
+        <input type='hidden' id='result_header' name='result_header'>
+        <input type='submit' id='search_header' name='search_header' value='Rechercher'>
+
+    </form>
     </header>
 
     <main>
     <tbody id='tBody'>
 
         <div class="result">
-        <?php echo ($_GET['result']); ?>
-        <?php var_dump($_GET); ?>
+        <?php if(isset($_GET['result'])){
+
+            echo ($_GET['result']); 
+        }
+        if(isset($_GET['result_header'])){
+            echo ($_GET['result_header']); 
+
+        }
+       ?>
         </div>
                 
     </main>

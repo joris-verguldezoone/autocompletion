@@ -1,58 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element</title>
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous">
+  </script>
+</head>
+<body>
+
 <?php
-
-// header('Content-type: application/json');
-
-
-$pdo = new PDO('mysql:host=localhost;dbname=autocompletion', 'root', '');
-
-$input_text = $_GET['text_search'].'%';
-$input_text2 = '% '.$_GET['text_search'].'%';
-
-
-
-if(!empty($_GET['text_search'])){
-    $tab1 = array();
-    $tab2 = array();
-    $i = 0;
-
-    $sql = "SELECT * FROM autocompletion_hardware WHERE mot LIKE :input_text";
-    $result = $pdo->prepare($sql);
-    $result->bindValue(':input_text',$input_text,PDO::PARAM_STR);
-    $result->execute();
-    while( $fetch = $result->fetch(PDO::FETCH_ASSOC)){
-        
-       $tab1[$i][] = $fetch;
-        $i++;
-    }
-    
-    $sql2 = "SELECT * FROM autocompletion_hardware WHERE mot LIKE :input_text2";
-    $result2 = $pdo->prepare($sql2);
-    $result2->bindValue(':input_text2',$input_text2,PDO::PARAM_STR);
-    $result2->execute();
-    
-    while( $fetch2 = $result2->fetch(PDO::FETCH_ASSOC)){
-        
-       $tab2[$i][] = $fetch2;
-        $i++;
-    }
-    $tab = $tab1 + $tab2;
-    // matchlist
-    // var_dump($fetch);
-    
-    // echo json_last_error_msg(); 
-    
-}
-    echo json_encode( utf8ize( $tab )); //cheatcode.exe ou tout simplement un probleme mystique avec une solution mystique.......
-
-function utf8ize( $mixed ) {
-    if (is_array($mixed)) {
-        foreach ($mixed as $key => $value) {
-            $mixed[$key] = utf8ize($value);
-        }
-    } elseif (is_string($mixed)) {
-        return mb_convert_encoding($mixed, "UTF-8", "UTF-8");
-    }
-    return $mixed;
-}
+    $recherche = 'recherche.php';
 
 ?>
+    <header>
+    <form method="get" action="<?=$recherche?>">
+
+        <div class="flex_col">
+            <input type='text' id='text_search_header' name='text_search_header' autocomplete="off">
+        <div id='matchList_header'></div>
+        </div>
+
+        <input type='hidden' id='result_header' name='result_header'>
+        <input type='submit' id='search_header' name='search_header' value='Rechercher'>
+
+    </form>
+    </header>
+    <main>
+    <?php
+    
+    if(isset($_GET['id'])){
+        $pdo = new PDO('mysql:host=localhost;dbname=autocompletion', 'root', '');
+
+        $id = $_GET['id'];
+
+        $sql = $sql = "SELECT * FROM autocompletion_hardware WHERE id=:id";
+        $result = $pdo->prepare($sql);
+        $result->bindValue(':id',$id,PDO::PARAM_INT);
+        $result->execute();
+
+        $fetch = $result->fetch(PDO::FETCH_ASSOC);
+    }
+    var_dump($fetch);
+    echo $fetch['id'];
+    echo $fetch['mot'];
+    ?>
+    </main>
+</body>
+<script type="text/javascript" src="../libraries/script.js"></script>
+
+</html>
