@@ -16,9 +16,11 @@ if(!empty($_POST['text_search'])){
     $result->bindValue(':input_text2',$input_text2,PDO::PARAM_STR);
     $result->execute();
     $tab = array();
-    while( $fetch = $result->fetch(PDO::FETCH_OBJ)){
-
-        array_push($tab, $fetch );
+    $i = 0;
+    while( $fetch = $result->fetch(PDO::FETCH_ASSOC)){
+        
+       $tab[$i][] = $fetch;
+        $i++;
     }
     
     // matchlist

@@ -15,7 +15,16 @@ $('#text_search').keyup(function(){
             data:'text_search='+$(this).val() // this -> $('#text_search')
         // })
         }).done(function (data){
-            $('matchList').document.write('mabite')
+            var str = ""
+            var data = JSON.parse(data)
+            for (var i = 0; i < data.length; i++){
+               
+                str = str + data[i][0]['mot'] + "<br />"
+                
+                console.log(data[i][0]['mot'])
+            }           
+            document.getElementById('matchList').innerHTML = str
+
             console.log(data)
         
         // attraper les résultat et les mettre sous l'input

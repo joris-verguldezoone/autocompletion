@@ -16,10 +16,12 @@
     </header>
 
     <main>
+    <tbody id='tBody'>
+</tbody>
         <form method="POST" action="pages_back/element.php">
             <input type='text' id='text_search' name='text_search'>
             <input type='button' id='search' name='search' value='Rechercher'>
-            <div id='matchList' style='background-color:aqua; height:10vh; width:5vw;'></div>
+            <div id='matchList' style='background-color:aqua; height:10vh; width:10vw;'></div>
         </form>
     </main>
 
