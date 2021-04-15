@@ -11,11 +11,8 @@ var matchList = document.getElementById('matchList')
 // addEventListener('input', function (evt) { // a revoir pour le input, pas bien compris 
 $('#text_search').keyup(function () {
     console.log(text_search.value)
-
-
     // if (!(text_search == "")) {
-
-    console.log(text_search.length)
+    // console.log(text_search.length)
     $.ajax({
         url: 'pages_back/element.php',
         dateType: 'json',
@@ -26,7 +23,6 @@ $('#text_search').keyup(function () {
         var str = ""
         var data = JSON.parse(data)
         for (var i = 0; i < data.length; i++) {
-
 
             str = str + '<a style="cursor:pointer;">' + data[i][0]['mot'] + '</a><br />'
 
@@ -51,16 +47,24 @@ $('#matchList').on('click', 'a', function (e) {
 })
 
 $('#search').click(function () {
-
+    // window.location.replace("pages_back/recherche.php")
     $.ajax({
         url: 'pages_back/element.php',
         dataType: 'json',
         type: 'POST',
         data: 'text_search=' + $('#text_search').val()
-
-
     }).done(function (data) {
+        var str = ""
         console.log(data)
-        // a peu près bon 
+        // var data = JSON.parse(data)
+        for (var i = 0; i < data.length; i++) {
+
+            str = str + '<p>' + data[i][0]['mot'] + '</p><br />'
+
+            console.log(data[i][0]['mot'])
+        }
+        console.log(str)
+        document.getElementById('matchList').innerHTML = str
+
     })
-})
+}); 

@@ -17,15 +17,18 @@
     </header>
 
     <main>
-    <tbody id='tBody'>
-</tbody>
+ 
         <form method="POST" action="pages_back/element.php">
-        <div class="flex_col">
-            <input type='text' id='text_search' name='text_search' autocomplete="off">
-            <div id='matchList'></div>
-        </div>
+
+            <div class="flex_col">
+                <input type='text' id='text_search' name='text_search' autocomplete="off">
+                <div id='matchList'></div>
+            </div>
+            
             <input type='button' id='search' name='search' value='Rechercher'>
+
         </form>
+    
     </main>
 
     <footer>
