@@ -14,7 +14,7 @@
 </head>
 <body>
 <?php
-    $recherche = 'pages_back/recherche.php';
+    $recherche = 'recherche.php';
 ?>
     <header> 
    
@@ -32,7 +32,7 @@
 
     <main>
     
-        <form method="get" action="pages_back/recherche.php">
+        <form method="get" action="recherche.php">
     
             <div class="flex_col">
                 <input type='text' id='text_search' name='text_search' autocomplete="off">

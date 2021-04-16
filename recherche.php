@@ -9,7 +9,7 @@
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous">
   </script>
-  <link rel='stylesheet' href='../css/style_recherche.css'>
+  <link rel='stylesheet' href='css/style_recherche.css'>
     <title>autocompletion</title>
 </head>
 <body>
@@ -50,7 +50,7 @@
 
     <footer>
     </footer>
-<script type="text/javascript" src="../libraries/script.js"></script>
+    <script type="text/javascript" src="libraries/script.js"></script>
 </body>
 </html>
 <!-- taper qqchose qui me redirige vers recherche.php avec les résultats qui correspondent aux lettres entrés 

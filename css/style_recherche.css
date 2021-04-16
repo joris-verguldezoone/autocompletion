@@ -3,3 +3,14 @@
     height:30vh;
     width:30vw;
 }
+.img_size{
+    width:300px;
+    height:300px;
+}
+.mise_en_forme_result_recherche{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
