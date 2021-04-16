@@ -6,24 +6,32 @@ $('#text_search').keyup(function () {
     console.log(text_search.value)
     // if (!(text_search == "")) {
     // console.log(text_search.length)
+    text_search= document.getElementById('text_search')
+    if(text_search.value == ""){ 
+        document.getElementById('matchList').innerHTML = ""
 
-    $.ajax({
-        url: 'encodage.php',
-        dateType: 'json',
-        type: 'GET',
-        data: 'text_search=' + $(this).val() // this -> $('#text_search')
-        // })
-    }).done(function (data) {
-        var str = ""
-        var data = JSON.parse(data)
-        for (var i = 0; i < data.length; i++) {
+    }else{
+        $.ajax({
+            url: 'encodage.php',
+            dateType: 'json',
+            type: 'GET',
+            data: 'text_search=' + $(this).val() // this -> $('#text_search')
+            // })
+        }).done(function (data) {
+            var str = ""
+            console.log(data)
+            var data = JSON.parse(data)
+            for (var i = 0; i < data.length; i++) {
 
-            str = str + '<a style="cursor:pointer;">' + data[i][0]['mot'] + '</a><br />'
+                str = str + '<a style="cursor:pointer;">' + data[i][0]['mot'] + '</a><br />'
 
-            console.log(data[i][0]['img'])
-        }
-        document.getElementById('matchList').innerHTML = str
-    })
+                console.log(data[i][0]['img'])
+            }
+            document.getElementById('matchList').innerHTML = str
+
+            
+        })
+    }
 });
 $('#matchList').on('click', 'a', function (e) {
     // dont allow the <a> to perform its default functionality
@@ -45,7 +53,7 @@ $('#matchList').on('click', 'a', function (e) {
         var data = JSON.parse(data)
         for (var i = 0; i < data.length; i++) {
 
-            str_result = str_result + '<div class="mise_en_forme_result_recherche"><a class="mise_en_forme_result_recherche" href="element.php?id=' + data[i][0]["id"] + '"><p>' + data[i][0]['mot'] + '</p><img class="img_size" src="' + data[i][0]['img'] + '">' + '</a></div><br />'
+            str_result = str_result + '<div class="mise_en_forme_result_recherche"><a class="mise_en_forme_result_recherche_a" href="element.php?id=' + data[i][0]["id"] + '"><p>' + data[i][0]['mot'] + '</p><img class="img_size" src="' + data[i][0]['img'] + '">' + '</a></div><br />'
 
             // console.log(data[i][0]['mot'])
         }
@@ -62,26 +70,31 @@ var matchList_header = document.getElementById('matchList_header')
 
 $('#text_search_header').keyup(function () {
     console.log(text_search_header.value)
-    $.ajax({
-        url: 'encodage.php',
-        dateType: 'json',
-        type: 'GET',
-        data: 'text_search=' + $(this).val() // this -> $('#text_search')
-        // })
-    }).done(function (data) {
-        var str = "";
-        data = JSON.parse(data)
+    if(text_search_header.value == ""){ 
+        document.getElementById('matchList_header').innerHTML = ""
 
-        for (var i = 0; i < data.length; i++) {
+    }else{
+        $.ajax({
+            url: 'encodage.php',
+            dateType: 'json',
+            type: 'GET',
+            data: 'text_search=' + $(this).val() // this -> $('#text_search')
+            // })
+        }).done(function (data) {
+            var str = "";
+            data = JSON.parse(data)
 
-            str = str + '<a style="cursor:pointer;">' + data[i][0]['mot'] + '</a><br />'
+            for (var i = 0; i < data.length; i++) {
 
-            console.log(data[i][0]['mot'])
+                str = str + '<a style="cursor:pointer;">' + data[i][0]['mot'] + '</a><br />'
 
-        }
-        // console.log(data)
-        document.getElementById('matchList_header').innerHTML = str
-    })
+                console.log(data[i][0]['mot'])
+
+            }
+            // console.log(data)
+            document.getElementById('matchList_header').innerHTML = str
+        })
+    }
 });
 $('#matchList_header').on('click', 'a', function (e) {
     console.log('mabite')
@@ -100,7 +113,7 @@ $('#matchList_header').on('click', 'a', function (e) {
         var data = JSON.parse(data)
         for (var i = 0; i < data.length; i++) {
 
-            str_result = str_result + '<div class="mise_en_forme_result_recherche"><a class="mise_en_forme_result_recherche" href="element.php?id=' + data[i][0]["id"] + '"><p>' + data[i][0]['mot'] + '</p><img class="img_size" src="' + data[i][0]['img'] + '">' + '</a></div><br />'
+            str_result = str_result + '<div class="mise_en_forme_result_recherche"><a class="mise_en_forme_result_recherche_a" href="element.php?id=' + data[i][0]["id"] + '"><p>' + data[i][0]['mot'] + '</p><img class="img_size" src="' + data[i][0]['img'] + '">' + '</a></div><br />'
 
             // console.log(data[i][0]['mot'])
         }

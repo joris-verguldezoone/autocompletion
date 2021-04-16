@@ -31,6 +31,7 @@ $input_text2 = '% '.$_GET['text_search'].'%';
        $tab2[$i][] = $fetch2;
         $i++;
     }
+    
     $tab = $tab1 + $tab2;
     // matchlist
     // var_dump($fetch);
@@ -40,7 +41,8 @@ $input_text2 = '% '.$_GET['text_search'].'%';
 // }
 
 
-echo json_encode($tab); //cheatcode.exe ou tout simplement un probleme mystique avec une solution mystique.......
+echo json_encode($tab);
+ //cheatcode.exe ou tout simplement un probleme mystique avec une solution mystique.......
 function utf8ize( $mixed ) {
     if (is_array($mixed)) {
         foreach ($mixed as $key => $value) {

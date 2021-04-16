@@ -13,4 +13,102 @@
     justify-content: center;
     align-items: center;
 
+    padding-top: 25px;
+
 }
+main{
+    min-height: 80vh;
+    background-image: url('../images/background_autocompletion.png');
+    background-size:cover;
+    background-position-y: 50%;
+}
+.mise_en_forme_result_recherche_a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba(7, 54, 66, 0.4);
+    width:15vw;
+    height:30vh;
+    color: white;
+    font-size: 2em;
+}
+.mise_en_forme_result_recherche_center_element{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    min-height:70vh;
+}
+#matchList_header{
+    background-color:white;
+    /* min-height:10vh; */
+    /* height:0; */
+    width: 10vw;
+    /* margin-top: 40px; */
+    /* padding:10px; */
+    border-bottom-right-radius:  0.5em;
+    border-bottom-left-radius:  0.5em;
+    box-shadow: 1px 1px 1px grey;
+    position: absolute ;
+    z-index: 1;
+}
+@font-face {
+    font-family: 'signature';
+    src: url('../fonts/signature/Zenzai-Itacha.ttf');
+}
+#signature{
+    margin-top: 5px;
+    font-family: 'signature';
+}
+#img_signature{
+    height:80px;
+    width:80px;
+}
+@media (min-width: 1280px) and (max-width: 2150px) {
+  
+    .mise_en_forme_result_recherche_a{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color:rgba(7, 54, 66, 0.4);
+        width:30vw;
+        height:30vh;
+        color: white;
+        font-size: 2em;
+    }
+    .mise_en_forme_result_recherche_center_element{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+        min-height:70vh;
+    }
+    
+  }
+  @media (min-width: 780px) and (max-width: 1280px) {
+  
+    .mise_en_forme_result_recherche_a{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color:rgba(7, 54, 66, 0.4);
+        width:40vw;
+        height:40vh;
+        color: white;
+        font-size: 2em;
+    }
+    .mise_en_forme_result_recherche_center_element{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+        min-height:70vh;
+    }
+    
+  }

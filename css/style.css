@@ -1,12 +1,28 @@
 #matchList{
     background-color:white;
-    min-height:10vh;
-    width: 100%w;
-    padding:10px;
+    /* min-height:10vh; */
+    /* height:0; */
+    width: 12vw;
+    margin-top: 50px;
+    /* padding:10px; */
     border-bottom-right-radius:  0.5em;
     border-bottom-left-radius:  0.5em;
     box-shadow: 1px 1px 1px grey;
-    
+    position: absolute ;
+    z-index: 1;
+}
+#matchList_header{
+    background-color:white;
+    /* min-height:10vh; */
+    /* height:0; */
+    width: 10vw;
+    margin-top: 40px;
+    /* padding:10px; */
+    border-bottom-right-radius:  0.5em;
+    border-bottom-left-radius:  0.5em;
+    box-shadow: 1px 1px 1px grey;
+    position: absolute ;
+    z-index: 1;
 }
 input[type=text]{
     width:100%;
@@ -20,6 +36,32 @@ form{
     display: flex;
     flex-direction: row;
 }
-input[type=submit]{
-    height:10%;
+main{
+    min-height: 80vh;
+    background-image: url('../images/background_autocompletion.png');
+    background-size:cover;
+    background-position-y: 50%;
+}
+#search{
+    background-color: #073642;
+    height:4vh
+}
+#text_search{
+    height: 4vh;
+    font-size: 1.5em;
+}
+#footer_link{
+    color:white
+}
+#img_signature{
+    height:80px;
+    width:80px;
+}
+@font-face {
+    font-family: 'signature';
+    src: url('../fonts/signature/Zenzai-Itacha.ttf');
+}
+#signature{
+    margin-top: 5px;
+    font-family: 'signature';
 }
