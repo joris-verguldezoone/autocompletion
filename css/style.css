@@ -45,10 +45,12 @@ main{
 #search{
     background-color: #073642;
     height:4vh
+
 }
 #text_search{
     height: 4vh;
     font-size: 1.5em;
+    
 }
 #footer_link{
     color:white
@@ -64,4 +66,45 @@ main{
 #signature{
     margin-top: 5px;
     font-family: 'signature';
+}
+
+/* media queries */
+
+
+  @media (min-height: 850px) {
+  
+    #search{
+        background-color: #073642;
+        height:4vh
+    }
+    #text_search{
+        height: 4vh;
+        font-size: 1.5em;
+        
+    }
+
+}@media (max-height: 849px) and (min-height:550px) {
+
+    #search{
+        background-color: #073642;
+        height:6vh
+    }
+    #text_search{
+        height: 6vh;
+        font-size: 1.5em;
+
+        
+    }
+}@media (max-height: 550px) {
+
+    #search{
+        background-color: #073642;
+        height:10vh
+    }
+    #text_search{
+        height: 10vh;
+        font-size: 1.5em;
+
+        
+    }
 }
